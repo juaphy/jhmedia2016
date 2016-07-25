@@ -19,6 +19,6 @@
 
     <context:component-scan base-package="com.jhmedia.master" />
 
-    <mvc:annontation-driven />
+    <mvc:annotation-driven />
     <mvc:default-servlet-handler />
 </beans>
