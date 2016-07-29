@@ -18,7 +18,22 @@
 ">
 
     <context:component-scan base-package="com.jhmedia.master" />
-
     <mvc:annotation-driven />
     <mvc:default-servlet-handler />
+    <!-- interceptor 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.jhmedia.master.web.common.interceptor.LoginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!-- Beetl -->
+    <bean id="beetlConfig" class="com.jhmedia.master.web.common.beetl.JhBeetlGroupUtilConfiguration"
+          init-method="init" />
+    <bean id="viewResolver" class="org.beetl.ext.spring.BeetlSpringViewResolver">
+        <property name="contentType" value="text/html;charset=UTF-8" />
+    </bean>
+    <!--bean工厂-->
+    <bean id="beanFactory" class="com.jhmedia.master.web.common.factory.BeanFactory" />
+    <context:annotation-config />
 </beans>

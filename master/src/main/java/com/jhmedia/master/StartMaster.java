@@ -22,7 +22,7 @@ public class StartMaster {
 
     public static void main(String[] args) throws Exception {
         loadLog();
-        int port = Integer.getInteger("port", 8088);
+        int port = Integer.getInteger("port", 8089);
         logger.info("Startting server at port {}", port);
 
         Server server = new Server(port);
