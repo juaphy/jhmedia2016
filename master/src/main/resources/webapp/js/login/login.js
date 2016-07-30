@@ -2,6 +2,7 @@
  * 工程名称：XiaoxiaoMaju.Web
  * 对象名称：login.js
  * 创建时间：2015年9月19日
+ * 更新信息：2016年7月30日（广州市番禺区大石镇植村村东南街5号）
  * (R) Copyright 贵州小小马驹科技有限公司
  * =====================================================/
 
@@ -20,7 +21,21 @@
  * XMLHttpRequst对象的一个实例变量
  */
 var xmlHttp;
+$(function() {
+    $("#login").on("click", function() {
+        if(isEmpty($("#securityCode").val())) {
+            layer.msg("请输入验证码！");
+            return false;
+        }
+    });
+});
 
+/**
+ * 判断字符串是否为空
+ */
+function isEmpty(obj) {
+    return obj == null || obj == "" || obj == "null";
+}
 /**
  * 清除error消息
  */

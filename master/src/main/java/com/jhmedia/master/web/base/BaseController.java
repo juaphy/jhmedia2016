@@ -9,18 +9,19 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jhmedia.master.PageData;
+
 
 public class BaseController {
-	public static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+    public static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
-	
-	/**
-	 * 得到PageData
-	 */
-	/*public PageData getPageData(){
-		return new PageData(this.getRequest());
-	}*/
-	
+    /**
+     * 得到PageData
+     */
+    public PageData getPageData() {
+        return new PageData(this.getRequest());
+    }
+
 	/**
 	 * 得到ModelAndView
 	 */
