@@ -24,7 +24,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	  String uri = request.getRequestURI();
 
 	  if("/".equals(uri)){
-		  response.sendRedirect("/index.html");
+		  response.sendRedirect("/login");
 	      return false;
 	  }
 	 /* Account account=(Account)request.getSession().getAttribute(Const.SESSION_USER);

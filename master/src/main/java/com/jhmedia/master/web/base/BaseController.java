@@ -5,18 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 
 public class BaseController {
 	public static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
-	private static final long serialVersionUID = 6357869213649815390L;
 	
 	/**
 	 * 得到PageData
