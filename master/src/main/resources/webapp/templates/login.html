@@ -25,7 +25,7 @@
             <div class="input_field">
             <p class="main">
                 <label>用户名: </label>
-                <input id="userName" name="userName" value="" class="input" />
+                <input id="yhm" name="yhm" value="" class="input" />
             </p>
             <p class="main">
                 <label>密&nbsp;&nbsp;&nbsp;码: </label>
@@ -34,7 +34,7 @@
             <p class="main">
                 <label>验证码: </label>
                 <input id="scode" type="text" name="scode" value="" class="input" />
-                <img src="/code.do" id="codeImg" alt="看不清，换一张" style="cursor:pointer;"/>
+                <img src="/code.do" id="codeImg" alt="看不清，换一张" style="cursor:pointer; margin-left:5px; margin-top:2px;"/>
             </p>
             <p class="space">
                 <span>
@@ -64,7 +64,7 @@
 
         // check入力项
         function checkInput() {
-            if (!check("#userName","请输入用户名！")) {
+            if (!check("#yhm","请输入用户名！")) {
                 return false;
             }
             if (!check("#mm","请输入密码！")) {
@@ -78,7 +78,7 @@
 
         // 定义window作用域的函数
         window.login = function(e) {
-            var username = $("#userName").val();
+            var username = $("#yhm").val();
             var password = $("#mm").val();
             var scode = $("#scode").val();
     

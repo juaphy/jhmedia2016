@@ -2,6 +2,9 @@ package com.jhmedia.master.web.common.interceptor;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.jhmedia.master.util.Const;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,37 +13,37 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Repository
 public class LoginInterceptor extends HandlerInterceptorAdapter {
-  private static final String[] NO_FILTERS = new String[] {
-      "/personinfo.html",
-      "/enterpriseinfo.html",
-      "/edit_enterpriseinfo.html",
-      
-      
-  };
+    private static final String[] NO_FILTERS = new String[] {
+      "/login",
+      "/toLogin",
+      "/js",
+      "/images",
+      "/css",
+      "/font",
+      "/skins",
+      "/easyui",
+      "/code"
+      };
 
-  @Override
-  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    @Override
+    public boolean preHandle(HttpServletRequest request, 
+            HttpServletResponse response, Object handler) throws Exception {
 
-	  String uri = request.getRequestURI();
+        String uri = request.getRequestURI();
 
-	  if("/".equals(uri)){
-		  response.sendRedirect("/login");
-	      return false;
-	  }
-	 /* Account account=(Account)request.getSession().getAttribute(Const.SESSION_USER);
-	  for (String noFilter : NO_FILTERS) {
-		  if (uri.startsWith(noFilter)&&account==null) {
-			  response.sendRedirect("/toLogin");
-			  return false;
-		  }
-	  }*/
+        // 拦截“不拦截名单”以外的uri
+        for (String noFilter : NO_FILTERS) {
+            if (uri.startsWith(noFilter)) {
+                return true;
+            }
+        }
 
-	  /*if (request.getSession().getAttribute(Const.SESSION_USER) == null) {
-      response.sendRedirect("/toLogin");
-      return false;
-    }*/
+        if (request.getSession().getAttribute(Const.SESSION_USER) == null) {
+            response.sendRedirect("/login");
+            return false;
+        }
 
-	  return true;
-  }
-  
+        return true;
+    }
+
 }

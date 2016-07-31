@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jhmedia.master.PageData;
+import com.jhmedia.master.util.Const;
+import com.jhmedia.master.util.StringUtil;
 import com.jhmedia.master.web.base.BaseController;
 
 @Controller
@@ -30,6 +32,18 @@ public class LoginCtr extends BaseController{
         Map<String, String> rtmap = new HashMap<String, String>();
 
         PageData pd = this.getPageData();
+        
+        String username = pd.getString("yhm");
+        String password = pd.getString("mm");
+        String code = pd.getString("scode");
+        String sessionCode = (String) getRequest().getSession().getAttribute(
+                Const.SESSION_SECURITY_CODE);
+        if (StringUtil.isEmpty(sessionCode)
+                || !sessionCode.toUpperCase().equals(code.toUpperCase())) {
+            rtmap.put("message", "验证码输入错误");
+            return rtmap;
+        }
+        getRequest().getSession().setAttribute(Const.SESSION_USER, "admin");
         rtmap.put("url", "/index");
         return rtmap;
     }
