@@ -9,7 +9,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jhmedia.master.PageData;
+import com.jhmedia.master.util.PageData;
 
 
 public class BaseController {

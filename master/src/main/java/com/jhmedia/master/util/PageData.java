@@ -5,7 +5,7 @@
  * (R) Copyright 贵州小小马驹科技有限公司 (广州市番禺区大石镇植村村东南大街5号)
  * =============================================================
  */
-package com.jhmedia.master;
+package com.jhmedia.master.util;
 
 import java.util.Collection;
 import java.util.HashMap;

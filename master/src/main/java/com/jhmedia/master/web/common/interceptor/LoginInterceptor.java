@@ -41,6 +41,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (request.getSession().getAttribute(Const.SESSION_USER) == null) {
             response.sendRedirect("/login");
             return false;
+        } else if ("/".equals(uri) && request.getSession().getAttribute(Const.SESSION_USER) == null) {
+            response.sendRedirect("/login");
+            return false;
+        } else if ("/".equals(uri)) {
+            response.sendRedirect("/index");
+            return false;
         }
 
         return true;
