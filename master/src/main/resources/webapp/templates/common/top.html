@@ -1,3 +1,4 @@
+<%var username = session.USERNAME!"Admin";%>
 <div id="header"> <!-- Header -->
         <div id="title">
             <img src="/images/main/logo.png" width="80"/>
@@ -6,7 +7,7 @@
         <div class="logged">
             <p>早上好, 
             <a href="#" title="">
-            admin
+            ${username!}
             </a>!</p>
             <p><a href="#">我的信息</a> | <a href="/loginOut" >退出</a></p>
             <p>你有 <a href="#">12 条信息</a>!</p>

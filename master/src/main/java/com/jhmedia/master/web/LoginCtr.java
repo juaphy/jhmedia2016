@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jhmedia.master.entity.UserManage;
 import com.jhmedia.master.service.common.UserManageService;
 import com.jhmedia.master.util.Const;
 import com.jhmedia.master.util.MD5;
@@ -55,7 +56,7 @@ public class LoginCtr extends BaseController{
         Map<String, String> rtmap = new HashMap<String, String>();
 
         PageData pd = this.getPageData();
-        
+
         String username = pd.getString("yhm");
         String password = pd.getString("mm");
         String code = pd.getString("scode");
@@ -88,7 +89,11 @@ public class LoginCtr extends BaseController{
                     return rtmap;
                 }
             } 
-            getRequest().getSession().setAttribute(Const.SESSION_USER, "admin");
+            getRequest().getSession().setAttribute(Const.SESSION_USER,
+                    upd.converntToBean(UserManage.class));
+            if (!StringUtil.isEmpty(upd.getString("nickname"))) {
+                username = upd.getString("nickname");
+            }
             getRequest().getSession().setAttribute(Const.SESSION_USERNAME, username);
             rtmap.put("url", "/index");
         } catch (Exception e) {

@@ -60,7 +60,7 @@ input.login {
  float:right;
  width:76px;
  height:24px;
- background:url('../images/login/assets/greenrep.png') 0 0 repeat-x;
+ background:url('/images/login/assets/greenrep.png') 0 0 repeat-x;
  color:#fff;
  border:1px solid #7dbc00;
  padding:0;
