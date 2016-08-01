@@ -28,4 +28,12 @@ public class StringUtil {
         return value == null || Const.EMPTY.equals(value) || Const.NULL.equals(value);
     }
 
+    /**
+     * toString
+     * @return
+     */
+    public static String toString(Object value) {
+        return value == null ? "" : value.toString();
+    }
+
 }

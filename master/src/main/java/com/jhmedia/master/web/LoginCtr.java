@@ -74,7 +74,7 @@ public class LoginCtr extends BaseController{
                 rtmap.put("message", "用户名不存在");
                 return rtmap;
             } else {
-                if ("1".equals(upd.getString("delete_flag"))) {
+                if ("1".equals(StringUtil.toString(upd.get("delete_flag")))) {
                     rtmap.put("message", "用户不存在");
                     return rtmap;
                 }
