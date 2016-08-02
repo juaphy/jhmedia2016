@@ -453,7 +453,7 @@ padding : 10px;
 height:490px;
 } 
 .content { 
-    background : #161616; 
+    /* background : #161616;  */
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
 } 
@@ -521,8 +521,8 @@ background : #111;
 
 fieldset { 
 padding:15px;
-border : 1px solid #333; 
-background:#252525;
+/* border : 1px solid #333;  */
+/* background:#252525; */
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 } 

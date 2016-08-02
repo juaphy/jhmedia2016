@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jhmedia.master.entity.UserManage;
 import com.jhmedia.master.service.common.UserManageService;
+import com.jhmedia.master.state.ZhglState;
 import com.jhmedia.master.util.Const;
 import com.jhmedia.master.util.MD5;
 import com.jhmedia.master.util.PageData;
@@ -75,7 +76,7 @@ public class LoginCtr extends BaseController{
                 rtmap.put("message", "用户名不存在");
                 return rtmap;
             } else {
-                if ("1".equals(StringUtil.toString(upd.get("delete_flag")))) {
+                if (ZhglState.YSC.getType_code().equals(StringUtil.toString(upd.get("delete_flag")))) {
                     rtmap.put("message", "用户不存在");
                     return rtmap;
                 }
@@ -84,7 +85,7 @@ public class LoginCtr extends BaseController{
                     rtmap.put("message", "密码错误");
                     return rtmap;
                 }
-                if("1".equals(upd.getString("activ_flag"))) {
+                if(!ZhglState.YJH.getType_code().equals(StringUtil.toString(upd.get("active_flag")))) {
                     rtmap.put("message", "用户未激活");
                     return rtmap;
                 }

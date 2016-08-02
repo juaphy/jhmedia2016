@@ -17,6 +17,7 @@
     <typeAliases>
         <typeAlias type="com.jhmedia.master.util.PageData" alias="pd"/>
         <!-- 分页 -->
+        <typeAlias type="com.jhmedia.master.util.Page" alias="page"/>
         <!-- <typeAlias type="com.sd.ubarchive.util.Page" alias="Page"/> -->
     </typeAliases>
     

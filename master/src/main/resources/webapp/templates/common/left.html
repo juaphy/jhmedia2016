@@ -65,7 +65,11 @@
        <div class="navhead"><span>系统管理</span></div>
         <div class="subnav">
             <ul class="submenu">
-                <li><a style="cursor:pointer;"  id="publish-banners">账号管理</a></li>
+                <li>
+                    <a onclick="toindex('/system_manage/zhgl/', this)"
+                       type="/system_manage/zhgl/" style="cursor:pointer;"
+                       id="publish-banners">账号管理</a>
+                </li>
                 <li><a style="cursor:pointer;" id="listview-banners">其他</a></li>
             </ul>
         </div>
@@ -85,3 +89,10 @@
     </div>
 </div>
 <!-- END 左中模块 -->
+<script type="text/javascript">
+    function toindex(url, obj) {
+        if ($("#mainFrame")) {
+            $("#mainFrame").attr("src", url);
+        }
+    }
+</script>

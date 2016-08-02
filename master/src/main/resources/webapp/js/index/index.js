@@ -13,7 +13,7 @@
 $(document).ready(function() {
 
     // 隐藏显示区域的其他div
-    $('div.content').hide();
+    /*$('div.content').hide();*/
 
     // 显示默认div
     $('#index').show();
