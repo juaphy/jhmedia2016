@@ -33,5 +33,8 @@
         <level value="info" />  
         <appender-ref ref="stdout" />
     <!--    <appender-ref ref="file" />  -->
-  </root>       
+  </root>
+
+  <!--控制台打印sql语句 与mybatis的<setting name="logPrefix" value="dao."/>  logback联合使用 --> 
+  <logger name="dao" level="DEBUG"/>      
 </configuration>
