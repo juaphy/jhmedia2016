@@ -19,5 +19,25 @@
                            http://www.springframework.org/schema/task
                            http://www.springframework.org/schema/task/spring-task-4.2.xsd
 ">
+    <context:component-scan base-package="com.jhmedia.front"/>
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler />
 
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.jhmedia.front.web.common.interceptor.IndexInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!-- beelt -->
+    <bean id="beetlConfig" class="com.jhmedia.front.web.common.beetl.JhFrontBeatlGroupUtilConfiguration" 
+        init-method="init"/>
+    <bean id="viewResolver" class="org.beetl.ext.spring.BeetlSpringViewResolver">
+        <property name="contentType" value="text/html;charset=UTF-8" />
+    </bean>
+
+    <!-- bean工厂 -->
+    <bean id="beanFactory" class="com.jhmedia.front.util.BeanFactory" />
+    <context:annotation-config />
 </beans>
