@@ -23,7 +23,7 @@ import com.jhmedia.master.util.PageData;
  * ID  ：$Id$
  * </pre>
  */
-@Service("userManageServiceImpl")
+@Service("UserManageServiceImpl")
 public class UserManageServiceImpl extends BaseServiceImpl implements UserManageService {
 
     public PageData findYhByYhm(PageData pd) throws Exception {

@@ -64,6 +64,13 @@ public class Page<T> implements Serializable {
     private PageData pd = new PageData();
 
     /**
+     * 无参构造方法
+     */
+    public Page() {
+
+    }
+
+    /**
      * 构造方法
      * @param pageIndex 当前页号
      * @param totalSize DB中总记录条数

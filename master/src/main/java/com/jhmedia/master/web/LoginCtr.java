@@ -25,7 +25,7 @@ public class LoginCtr extends BaseController{
 
     Logger logger = LoggerFactory.getLogger(LoginCtr.class);
 
-    @Resource(name = "userManageServiceImpl")
+    @Resource(name = "UserManageServiceImpl")
     private UserManageService userManageService;
 
     @RequestMapping("/login")
@@ -76,7 +76,7 @@ public class LoginCtr extends BaseController{
                 rtmap.put("message", "用户名不存在");
                 return rtmap;
             } else {
-                if (ZhglState.YSC.getType_code().equals(StringUtil.toString(upd.get("delete_flag")))) {
+                if (ZhglState.YSC.getType_code().equals(StringUtil.toString(upd.get("zhzt")))) {
                     rtmap.put("message", "用户不存在");
                     return rtmap;
                 }
@@ -85,7 +85,7 @@ public class LoginCtr extends BaseController{
                     rtmap.put("message", "密码错误");
                     return rtmap;
                 }
-                if(!ZhglState.YJH.getType_code().equals(StringUtil.toString(upd.get("active_flag")))) {
+                if(!ZhglState.YJH.getType_code().equals(StringUtil.toString(upd.get("zhzt")))) {
                     rtmap.put("message", "用户未激活");
                     return rtmap;
                 }

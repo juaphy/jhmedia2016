@@ -8,8 +8,15 @@
             *
         FROM t_yh
         ORDER BY
-            delete_flag,
-            active_flag,
+            zhzt,
             create_time desc
     </select>
+
+    <!-- 更新账号状态 -->
+    <update id="updateZhzt" parameterType="pd">
+        UPDATE
+            t_yh
+        SET zhzt = #{zhzt}
+        WHERE yhid = #{yhid}
+    </update>
 </mapper>

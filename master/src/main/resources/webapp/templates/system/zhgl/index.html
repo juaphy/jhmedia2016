@@ -1,8 +1,8 @@
 <%layout("/common/layout.html") { %>
-<!-- [START 新闻中心 一览] -->
-<!-- [滚动广告  一览] -->
+<!-- [START 账号管理] -->
+<!-- [账号管理] -->
 <div id="include-listview-banners" class="content">
-    <h2>滚动广告 一览</h2>
+    <h2>账号管理</h2>
     <fieldset>
         <table id="table_listView" class="zebra">
             <thead>
@@ -16,14 +16,27 @@
             </tr>
             </thead>
             <tbody>
+            <% for (item in list!) {%>
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+                <td>${item.yhm}</td>
+                <td>${item.nickname}</td>
+                <td>${item.create_time, dateFormat='yyyy-MM-dd hh:mm:ss'}</td>
+                <td>${item.zhzt}</td>
+                <td>${item.zhlx}</td>
+                <td>
+                <% if ('0' == item.cz!) { %>
+                    <a style="color:#00BDFF;" href="javascript:void(0)" onclick="toUpdateZhzt(${item.yhid!}, '1', '激活')">激活</a>
+                <% } else if ('1' == item.cz!) { %>
+                    <a style="color:#00BDFF;" href="javascript:void(0)" onclick="toUpdateZhzt(${item.yhid!}, '3', '冻结')">冻结</a>
+                    <a style="color:#00BDFF;" href="javascript:void(0)" onclick="toUpdateZhzt(${item.yhid!}, '2', '删除')">删除</a>
+                <% } else if ('2' == item.cz!) { %>
+                    <a style="color:#00BDFF;" href="javascript:void(0)" onclick="toUpdateZhzt(${item.yhid!}, '0', '启用')">启用</a>
+                <% } else if ('3' == item.cz!) { %>
+                    <a style="color:#00BDFF;" href="javascript:void(0)" onclick="toUpdateZhzt(${item.yhid!}, '1', '解冻')">解冻</a>
+                <% } %>
+                </td>
             </tr>
+            <% } %>
             </tbody>
         </table>
         <!-- 表头  - START -->
@@ -31,5 +44,24 @@
     <!-- 表内容 - END --> 
     <!-- End of fieldset -->
 </div>
-<!-- [END 新闻中心 一览] -->
+<!-- [END 账号管理 一览] -->
+<script type="text/javascript">
+    function toUpdateZhzt(yhid, zhzt, cz) {
+    	layer.confirm('确认要' + cz + '吗？',{btn: ['是','否'] },function(){
+            $.ajax({
+            	url:"/system_manage/toUpdateZhzt",
+            	type:"POST",
+            	dataType:"json",
+            	data:{"yhid":yhid, "zhzt":zhzt},
+            	success:function(data) {
+            		if (data.errormessage != null && data.errormessage != '') {
+            			layer.msg(data.errormessage);
+            		} else {
+            			layer.msg(cz + "成功！");
+            		}
+            	}
+            });
+    	});
+    }
+</script>
 <%}%>

@@ -5,15 +5,19 @@
  * (R) Copyright 贵州小小马驹科技有限公司 (广州市番禺区大石镇植村村东南大街5号)
  * =============================================================
  */
-package com.jhmedia.master.service.zhgl;
+package com.jhmedia.master.service.system.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.jhmedia.master.service.common.BaseServiceImpl;
+import com.jhmedia.master.service.system.ZhglService;
 import com.jhmedia.master.util.Page;
 import com.jhmedia.master.util.PageData;
+import com.jhmedia.master.util.StringUtil;
 
 /**
  * TODO
@@ -25,12 +29,22 @@ import com.jhmedia.master.util.PageData;
  * ID  ：$Id$
  * </pre>
  */
-@Service("zhglServiceImpl")
+@Service("ZhglServiceImpl")
 public class ZhglServiceImpl extends BaseServiceImpl implements ZhglService {
+
+    private Logger logger = LoggerFactory.getLogger(ZhglServiceImpl.class);
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public List<PageData> findZhListPage(Page page) throws Exception {
         return (List<PageData>) this.daoSupport.findForList("ZhglMapper.zhlistPage", page);
     }
 
+    public void updateZhzt(PageData pd) throws Exception {
+        logger.info("ZhglServiceImpl updateZhzt...");
+        if (StringUtil.isEmpty(pd.getString("yhid"))
+                || StringUtil.isEmpty(String.valueOf(pd.get("zhzt")))) {
+            throw new Exception("用户id或更新状态错误!");
+        }
+        this.daoSupport.update("ZhglMapper.updateZhzt", pd);
+    }
 }

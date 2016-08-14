@@ -5,7 +5,7 @@
  * (R) Copyright 贵州小小马驹科技有限公司 (广州市番禺区大石镇植村村东南大街5号)
  * =============================================================
  */
-package com.jhmedia.master.service.zhgl;
+package com.jhmedia.master.service.system;
 
 import java.util.List;
 
@@ -32,4 +32,12 @@ public interface ZhglService {
      */
     @SuppressWarnings("rawtypes")
     public List<PageData> findZhListPage(Page page) throws Exception;
+
+    /**
+     * 更新账号状态
+     * @param pd
+     * @throws Exception
+     */
+    public void updateZhzt(PageData pd) throws Exception;
+
 }

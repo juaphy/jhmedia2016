@@ -23,8 +23,7 @@ import java.util.Map;
  */
 public class ZhglState extends SysStateSupport {
     private static Map<String, SysStateSupport> stateMapAll = new HashMap<String, SysStateSupport>();
-    private static Map<String, SysStateSupport> jhztMap = new HashMap<String, SysStateSupport>();
-    private static Map<String, SysStateSupport> scztMap = new HashMap<String, SysStateSupport>();
+    private static Map<String, SysStateSupport> zhlxMap = new HashMap<String, SysStateSupport>();
 
     public ZhglState(String type_code, String short_desc) {
         this.type_code = type_code;
@@ -33,20 +32,22 @@ public class ZhglState extends SysStateSupport {
 
     public static final ZhglState WJH = new ZhglState("0", "未激活");
     public static final ZhglState YJH = new ZhglState("1", "已激活");
-    public static final ZhglState WSC = new ZhglState("0", "未删除");
-    public static final ZhglState YSC = new ZhglState("1", "已删除");
+    public static final ZhglState YSC = new ZhglState("2", "已删除");
+    public static final ZhglState YDJ = new ZhglState("3", "已冻结");
+
+    public static final ZhglState GLY = new ZhglState("1", "管理员");
+    public static final ZhglState YH = new ZhglState("2", "用户");
+    public static final ZhglState CS = new ZhglState("3", "测试员");
 
     static {
         stateMapAll.put(WJH.getType_code(), WJH);
         stateMapAll.put(YJH.getType_code(), YJH);
-        stateMapAll.put(WSC.getType_code(), WSC);
         stateMapAll.put(YSC.getType_code(), YSC);
+        stateMapAll.put(YDJ.getType_code(), YDJ);
 
-        jhztMap.put(WJH.getType_code(), WJH);
-        jhztMap.put(YJH.getType_code(), YJH);
-
-        scztMap.put(WSC.getType_code(), WSC);
-        scztMap.put(YSC.getType_code(), YSC);
+        zhlxMap.put(GLY.getType_code(), GLY);
+        zhlxMap.put(YH.getType_code(), YH);
+        zhlxMap.put(CS.getType_code(), CS);
     }
 
     /**
@@ -59,36 +60,36 @@ public class ZhglState extends SysStateSupport {
     }
 
     /**
-     * 根据类型获code取类型名称
+     * 根据账号状态code取得账号状态名称
      * @param type_code
      * @return
      */
-    public static String codeToDesc(String type_code) {
+    public static String codeToDescByZhzt(String type_code) {
         return getDescOfCode(stateMapAll, type_code);
     }
 
     /**
-     * 获取全部类型列表
+     * 根据账号类型code取得账号类型名称
+     * @param type_code
      * @return
      */
-    public static List<String[]> findSatesByAll() {
+    public static String codeToDescByZhlx(String type_code) {
+        return getDescOfCode(zhlxMap, type_code);
+    }
+
+    /**
+     * 获取账号状态列表
+     * @return
+     */
+    public static List<String[]> findZhzt() {
         return makeStateList(stateMapAll);
     }
 
     /**
-     * 获取激活状态类型列表
-     * @return
+     * 获取账号类型列表
      */
-    public static List<String[]> findSatesByJhzt() {
-        return makeStateList(jhztMap);
-    }
-
-    /**
-     * 获取删除状态类型列表
-     * @return
-     */
-    public static List<String[]> findSatesBySczt() {
-        return makeStateList(scztMap);
+    public static List<String[]> findZhlx() {
+        return makeStateList(zhlxMap);
     }
 
 }
