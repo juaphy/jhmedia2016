@@ -67,7 +67,6 @@ public class SystemManageCtr extends BaseController {
         PageData pd = this.getPageData();
         try {
             zhglService.updateZhzt(pd);
-            pd.put("result", pd.getString("cz"));
         } catch (Exception e) {
             e.printStackTrace();
             pd.put("errormessage", "更新账号状态时发生异常");
