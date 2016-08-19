@@ -19,4 +19,11 @@
         SET zhzt = #{zhzt}
         WHERE yhid = #{yhid}
     </update>
+
+    <!-- 修改密码 -->
+    <update id="updateZhmm" parameterType="pd">
+        UPDATE t_yh
+        SET mm = #{mm}
+        WHERE yhid = #{yhid}
+    </update>
 </mapper>

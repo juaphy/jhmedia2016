@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.jhmedia.master.service.common.BaseServiceImpl;
 import com.jhmedia.master.service.system.ZhglService;
+import com.jhmedia.master.util.MD5;
 import com.jhmedia.master.util.Page;
 import com.jhmedia.master.util.PageData;
 import com.jhmedia.master.util.StringUtil;
@@ -46,5 +47,14 @@ public class ZhglServiceImpl extends BaseServiceImpl implements ZhglService {
             throw new Exception("用户id或更新状态错误!");
         }
         this.daoSupport.update("ZhglMapper.updateZhzt", pd);
+    }
+
+    public void updateZhmm(PageData pd) throws Exception {
+        logger.info("ZhglServiceImpl updateZhmm...");
+        if (StringUtil.isEmpty(pd.getString("yhid"))) {
+            throw new Exception("用户id不能为空");
+        }
+        pd.put("mm", MD5.md5(pd.getString("xmm")));
+        this.daoSupport.update("ZhglMapper.updateZhmm", pd);
     }
 }

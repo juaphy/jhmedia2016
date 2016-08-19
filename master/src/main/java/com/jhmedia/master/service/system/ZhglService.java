@@ -40,4 +40,11 @@ public interface ZhglService {
      */
     public void updateZhzt(PageData pd) throws Exception;
 
+    /**
+     * 修改密码
+     * @param pd
+     * @throws Exception
+     */
+    public void updateZhmm(PageData pd) throws Exception;
+
 }

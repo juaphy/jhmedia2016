@@ -9,6 +9,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jhmedia.master.entity.UserManage;
+import com.jhmedia.master.util.Const;
 import com.jhmedia.master.util.PageData;
 
 
@@ -70,4 +72,8 @@ public class BaseController {
 	public Account getAccount(){
 		return (Account)getRequest().getSession().getAttribute(Const.SESSION_USER);
 	}*/
+	public UserManage getUser() {
+	    return (UserManage) getRequest().getSession().getAttribute(Const.SESSION_USER);
+	}
+
 }

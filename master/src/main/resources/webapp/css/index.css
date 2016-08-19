@@ -606,19 +606,21 @@ margin : 2px 0;
 .submit, .button { 
 text-align : center; 
 height:24px;
-background:url('../images/index/assets/greenrep.png') 0 0 repeat-x;
+background:url('/images/index/assets/greenrep.png') 0 0 repeat-x;
 float : left; 
 color : #eee; 
 font-size : 0.9em; 
 margin : 5px; 
 border:1px solid #7dbc00;
 padding:0 10px;
+width: 50px;
 } 
 
 .submit:hover, .button:hover {
  cursor:pointer;
- color:#fff;
- text-decoration:underline;
+ color:#ffffff;
+ font-weight:bold;
+ text-decoration:none;
 }
 
 .button {
