@@ -45,6 +45,7 @@ public class SystemManageCtr extends BaseController {
     @RequestMapping("/")
     public ModelAndView index(Page page) throws Exception {
         ModelAndView mv = new ModelAndView();
+        page.setPageSize(5);
         List<PageData> list = zhglService.findZhListPage(page);
         for (PageData pd : list) {
 

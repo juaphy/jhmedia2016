@@ -65,11 +65,13 @@
        <div class="navhead"><span>系统管理</span></div>
         <div class="subnav">
             <ul class="submenu">
+                <% if (1 == user.zhlx) {%>
                 <li>
                     <a onclick="toindex('/system_manage/zhgl/', this)"
                        type="/system_manage/zhgl/" style="cursor:pointer;"
                        id="zhgl">账号管理</a>
                 </li>
+                <%}%>
                 <li><a onclick="toindex('/system_manage/zhgl/toXgmm', this)"
                     type="/system_manage/zhgl/toXgmm" style="cursor:pointer;"
                     style="cursor:pointer;" id="xgmm">修改密码</a></li>

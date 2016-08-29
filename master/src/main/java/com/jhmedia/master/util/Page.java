@@ -258,10 +258,10 @@ public class Page<T> implements Serializable {
      * @return
      */
     public int getTotalPage() {
-        if (currentResult % pageSize == 0) {
-            totalPage = currentResult / pageSize;
+        if (resultCount % pageSize == 0) {
+            totalPage = (int) (resultCount / pageSize);
         } else {
-            totalPage = (currentResult / pageSize + 1);
+            totalPage = (int) (resultCount / pageSize + 1);
         }
         return totalPage;
     }

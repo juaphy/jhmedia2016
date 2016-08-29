@@ -6,7 +6,7 @@
     <!-- Content begins here -->
     <h2>修改密码</h2>
     <!-- Fieldset -->
-    <fieldset>
+    <fieldset style="background: #252525;">
         <div class="input_field">
             <label for="sf">账号: <span class="field_desc">*</span></label>
             <input class="smallfield" name="yhm" type="text" value="${zhxx.yhm!}" readonly="readonly" autocomplete="off" />
@@ -27,7 +27,8 @@
             <label for="sf">确认新密码: <span class="field_desc">*</span></label>
             <input class="smallfield" name="qrxmm" type="password" value="${zhxx.qrxmm}" />
         </div>
-        <div class="input_field no_margin_bottom">
+        <div class="input_field">
+            <label for="sf">&nbsp;</label>
             <input class="submit" type="button" value="提交" onclick="doXgmm()" />
         </div>
     </fieldset>

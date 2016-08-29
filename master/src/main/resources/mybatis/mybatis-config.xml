@@ -22,10 +22,10 @@
     </typeAliases>
     
     <!-- 自动分页 -->
-    <!-- <plugins>
-        <plugin interceptor="com.sd.ubarchive.web.common.interceptors.PagePlugin">
+    <plugins>
+        <plugin interceptor="com.jhmedia.master.web.common.interceptor.PagePlugin">
             <property name="dialect" value="mysql"/>
             <property name="pageSqlId" value=".*listPage.*"/>
         </plugin>
-    </plugins> -->
+    </plugins>
 </configuration>
