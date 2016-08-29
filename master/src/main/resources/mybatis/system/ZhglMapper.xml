@@ -6,7 +6,7 @@
     <select id="zhlistPage" parameterType="page" resultType="pd">
         SELECT
             *
-        FROM t_yh
+        FROM yh_yh
         ORDER BY
             zhzt,
             create_time desc
@@ -15,14 +15,14 @@
     <!-- 更新账号状态 -->
     <update id="updateZhzt" parameterType="pd">
         UPDATE
-            t_yh
+            yh_yh
         SET zhzt = #{zhzt}
         WHERE yhid = #{yhid}
     </update>
 
     <!-- 修改密码 -->
     <update id="updateZhmm" parameterType="pd">
-        UPDATE t_yh
+        UPDATE yh_yh
         SET mm = #{mm}
         WHERE yhid = #{yhid}
     </update>

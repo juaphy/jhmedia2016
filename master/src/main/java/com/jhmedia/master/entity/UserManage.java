@@ -42,6 +42,10 @@ public class UserManage implements Serializable {
     // 删除状态
     private Integer delete_flag;
 
+    private Integer zhlx;
+
+    private Integer zhzt;
+
     public String getYhid() {
         return yhid;
     }
@@ -83,6 +87,18 @@ public class UserManage implements Serializable {
     }
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+    public Integer getZhlx() {
+        return zhlx;
+    }
+    public void setZhlx(Integer zhlx) {
+        this.zhlx = zhlx;
+    }
+    public Integer getZhzt() {
+        return zhzt;
+    }
+    public void setZhzt(Integer zhzt) {
+        this.zhzt = zhzt;
     }
 
 }

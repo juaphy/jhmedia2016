@@ -7,7 +7,7 @@
     <select id="findYhByYhm" parameterType="pd" resultType="pd">
         SELECT
             *
-        FROM t_yh
+        FROM yh_yh
         WHERE yhm = #{yhm}
     </select>
 </mapper>

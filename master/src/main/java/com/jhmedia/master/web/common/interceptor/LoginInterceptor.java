@@ -22,7 +22,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
       "/font",
       "/skins",
       "/easyui",
-      "/code"
+      "/code",
+      "/addZh"
       };
 
     @Override
